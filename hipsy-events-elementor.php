@@ -7,7 +7,7 @@
  * Plugin Name:   Hipsy Events for Elementor
  * Plugin URI:    https://hipsy.nl
  * Description:   Elementor add-on voor Hipsy Events Core. Voegt Hipsy event widgets en dynamic tags toe aan Elementor.
- * Version:       1.0.0
+ * Version:       1.0.1
  * Author:        How About Yes
  * Author URI:    https://howaboutyes.com
  * Text Domain:   hipsy-events-elementor
@@ -15,9 +15,9 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'HIPSY_ELEMENTOR_VERSION', '1.0.0' );
-define( 'HIPSY_ELEMENTOR_PATH', plugin_dir_path( __FILE__ ) );
-define( 'HIPSY_ELEMENTOR_URL', plugin_dir_url( __FILE__ ) );
+if ( ! defined( 'HIPSY_ELEMENTOR_VERSION' ) ) define( 'HIPSY_ELEMENTOR_VERSION', '1.0.1' );
+if ( ! defined( 'HIPSY_ELEMENTOR_PATH' ) ) define( 'HIPSY_ELEMENTOR_PATH', plugin_dir_path( __FILE__ ) );
+if ( ! defined( 'HIPSY_ELEMENTOR_URL' ) ) define( 'HIPSY_ELEMENTOR_URL', plugin_dir_url( __FILE__ ) );
 
 function hipsy_elementor_admin_notice( $message, $type = 'warning' ) {
     add_action( 'admin_notices', function() use ( $message, $type ) {
@@ -26,7 +26,7 @@ function hipsy_elementor_admin_notice( $message, $type = 'warning' ) {
 }
 
 add_action( 'plugins_loaded', function() {
-    if ( ! post_type_exists( 'events' ) ) {
+    if ( ! defined( 'HIPSY_EVENTS_CORE_VERSION' ) ) {
         hipsy_elementor_admin_notice( 'Hipsy Events Core is vereist. Activeer eerst de core plugin.' );
         return;
     }
@@ -42,6 +42,10 @@ add_action( 'plugins_loaded', function() {
 
     if ( file_exists( HIPSY_ELEMENTOR_PATH . 'integrations/elementor/elementor-dynamic-tags.php' ) ) {
         require_once HIPSY_ELEMENTOR_PATH . 'integrations/elementor/elementor-dynamic-tags.php';
+    }
+
+    if ( file_exists( HIPSY_ELEMENTOR_PATH . 'integrations/elementor/elementor-tags.php' ) ) {
+        require_once HIPSY_ELEMENTOR_PATH . 'integrations/elementor/elementor-tags.php';
     }
 
     if ( file_exists( HIPSY_ELEMENTOR_PATH . 'integrations/elementor/filter-bar-widget.php' ) ) {
