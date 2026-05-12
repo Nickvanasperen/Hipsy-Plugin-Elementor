@@ -1,18 +1,26 @@
 <?php
-/**
- * Minimal Freemius SDK loader placeholder.
- * Replace this directory with the full official Freemius WordPress SDK before production release.
- */
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
+	/**
+	 * @package     Freemius
+	 * @copyright   Copyright (c) 2015, Freemius, Inc.
+	 * @license     https://www.gnu.org/licenses/gpl-3.0.html GNU General Public License Version 3
+	 * @since       1.0.3
+	 */
 
-if ( ! function_exists( 'fs_dynamic_init' ) ) {
-    function fs_dynamic_init( $module ) {
-        return (object) array(
-            'module' => $module,
-            'is_plan' => function() { return false; },
-            'can_use_premium_code' => function() { return false; },
-        );
-    }
-}
+	if ( ! defined( 'ABSPATH' ) ) {
+		return;
+	}
+
+	/**
+	 * Freemius SDK Version.
+	 *
+	 * @var string
+	 */
+	$this_sdk_version = '2.13.1';
+
+	if ( ! function_exists( 'fs_find_caller_plugin_file' ) ) {
+		require_once dirname( __FILE__ ) . '/includes/fs-essential-functions.php';
+	}
+
+	if ( ! class_exists( 'Freemius' ) ) {
+		require_once dirname( __FILE__ ) . '/includes/class-freemius.php';
+	}
