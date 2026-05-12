@@ -15,6 +15,46 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+if ( ! function_exists( 'hpelementor' ) ) {
+    // Create a helper function for easy SDK access.
+    function hpelementor() {
+        global $hpelementor;
+
+        if ( ! isset( $hpelementor ) ) {
+            // Include Freemius SDK.
+            require_once dirname( __FILE__ ) . '/vendor/freemius/start.php';
+
+            $hpelementor = fs_dynamic_init( array(
+                'id'                  => '29370',
+                'slug'                => 'hipsy-plugin-for-elementor',
+                'premium_slug'        => 'hipsy-plugin-for-elementor-pro',
+                'type'                => 'plugin',
+                'public_key'          => 'pk_83e3d59fe7d4e02ac6958ad5f89df',
+                'is_premium'          => true,
+                'is_premium_only'     => true,
+                'has_addons'          => true,
+                'has_paid_plans'      => true,
+                'is_org_compliant'    => true,
+                // Automatically removed in the free version. If you're not using the
+                // auto-generated free version, delete this line before uploading to wp.org.
+                'wp_org_gatekeeper'   => 'OA7#BoRiBNqdf52FvzEf!!074aRLPs8fspif$7K1#4u4Csys1fQlCecVcUTOs2mcpeVHi#C2j9d09fOTvbC0HloPT7fFee5WdS3G',
+                'menu'                => array(
+                    'first-path'     => 'plugins.php',
+                    'contact'        => false,
+                    'support'        => false,
+                ),
+            ) );
+        }
+
+        return $hpelementor;
+    }
+
+    // Init Freemius.
+    hpelementor();
+    // Signal that SDK was initiated.
+    do_action( 'hpelementor_loaded' );
+}
+
 if ( ! defined( 'HIPSY_ELEMENTOR_VERSION' ) ) define( 'HIPSY_ELEMENTOR_VERSION', '1.0.1' );
 if ( ! defined( 'HIPSY_ELEMENTOR_PATH' ) ) define( 'HIPSY_ELEMENTOR_PATH', plugin_dir_path( __FILE__ ) );
 if ( ! defined( 'HIPSY_ELEMENTOR_URL' ) ) define( 'HIPSY_ELEMENTOR_URL', plugin_dir_url( __FILE__ ) );
