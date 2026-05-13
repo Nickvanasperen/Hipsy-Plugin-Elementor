@@ -7,7 +7,7 @@
  * Plugin Name:   Hipsy Events for Elementor
  * Plugin URI:    https://hipsy.nl
  * Description:   Elementor add-on voor Hipsy Events Core. Voegt Hipsy event widgets en dynamic tags toe aan Elementor.
- * Version:       1.0.1
+ * Version:       1.0.2
  * Author:        Young Soul Business
  * Author URI:    https://www.youngsoulbusiness.com
  * Text Domain:   hipsy-events-elementor
@@ -55,7 +55,7 @@ if ( ! function_exists( 'hpelementor' ) ) {
     do_action( 'hpelementor_loaded' );
 }
 
-if ( ! defined( 'HIPSY_ELEMENTOR_VERSION' ) ) define( 'HIPSY_ELEMENTOR_VERSION', '1.0.1' );
+if ( ! defined( 'HIPSY_ELEMENTOR_VERSION' ) ) define( 'HIPSY_ELEMENTOR_VERSION', '1.0.2' );
 if ( ! defined( 'HIPSY_ELEMENTOR_PATH' ) ) define( 'HIPSY_ELEMENTOR_PATH', plugin_dir_path( __FILE__ ) );
 if ( ! defined( 'HIPSY_ELEMENTOR_URL' ) ) define( 'HIPSY_ELEMENTOR_URL', plugin_dir_url( __FILE__ ) );
 
