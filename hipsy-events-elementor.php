@@ -22,7 +22,7 @@ if ( ! function_exists( 'hpelementor' ) ) {
 
         if ( ! isset( $hpelementor ) ) {
             // Include Freemius SDK.
-            require_once dirname( __FILE__ ) . '/vendor/freemius/start.php';
+            require_once dirname( __FILE__ ) . '/freemius/start.php';
 
             $hpelementor = fs_dynamic_init( array(
                 'id'                  => '29370',
