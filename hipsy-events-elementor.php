@@ -8,8 +8,8 @@
  * Plugin URI:    https://hipsy.nl
  * Description:   Elementor add-on voor Hipsy Events Core. Voegt Hipsy event widgets en dynamic tags toe aan Elementor.
  * Version:       1.0.1
- * Author:        How About Yes
- * Author URI:    https://howaboutyes.com
+ * Author:        Young Soul Business
+ * Author URI:    https://www.youngsoulbusiness.com
  * Text Domain:   hipsy-events-elementor
  */
 
